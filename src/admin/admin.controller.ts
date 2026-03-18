@@ -13,13 +13,11 @@ async promoteUser(@Param('userId') userId: string) {
   try {
     const result = await this.analyticsService.MakeAdmin(userId);
     return {
-      message: 'User promoted to admin successfully',
+      message: 'User is admin successfully',
       data: result,
     };
   } catch (error) {
-    // You can log the error or handle it as needed
-    console.error('Error promoting user to admin:', error);
-
+  
     // Throw an appropriate HTTP exception
     throw new HttpException(
       {
@@ -41,7 +39,6 @@ async demoteUser(@Param('userId') userId: string) {
       data: result,
     };
   } catch (error) {
-    console.error('Error demoting user from admin:', error);
 
     throw new HttpException(
       {

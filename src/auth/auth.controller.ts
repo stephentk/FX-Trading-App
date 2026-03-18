@@ -22,9 +22,8 @@ import {
 import { VerifyOtpDto } from './dto/verify.dto';
 import { Unauthenticated } from 'src/common/decorators/unauthenticated.decorators';
 
-@ApiTags('Auth')
+
 @Controller('auth')
-@UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

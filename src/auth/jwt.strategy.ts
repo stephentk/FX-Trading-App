@@ -13,16 +13,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: any) {
-    // You can add more validation here if needed (e.g. check if user still exists)
-    if (!payload.sub) {
-      throw new UnauthorizedException('Invalid token payload');
-    }
-
-    return {
-      userId: payload.sub,
-      email: payload.email,
-      // you can add roles, etc. later
-    };
+async validate(payload: any) {
+  if (!payload.sub) {
+    throw new UnauthorizedException('Invalid token payload');
   }
+
+  return {
+    id: payload.sub,   // <-- use 'id' to match User entity
+    email: payload.email,
+    // add roles, isVerified, etc., if needed
+  };
+}
 }

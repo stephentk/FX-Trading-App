@@ -41,31 +41,31 @@ export class AnalyticsService {
     user.role = UserRole.USER;
     return this.userRepository.save(user);
   }
-  async getAllUsers(page = 1, limit = 10) {
-    const [users, total] = await this.userRepository.findAndCount({
-      skip: (page - 1) * limit,
-      take: limit,
-      relations: ['wallet'],
-      order: { createdAt: 'DESC' },
-    });
+async getAllUsers(page = 1, limit = 10) {
+  const [users, total] = await this.userRepository.findAndCount({
+    where: { isVerified: true }, // only verified users
+    skip: (page - 1) * limit,
+    take: limit,
+    relations: ['wallet'],
+    order: { createdAt: 'DESC' },
+  });
 
-    return {
-      data: users.map(u => ({
-        id: u.id,
-        firstName: u.firstName,
-        lastName: u.lastName,
-        email: u.email,
-        isVerified: u.isVerified,
-        role: u.role,
-        createdAt: u.createdAt,
-      })),
-      total,
-      page,
-      limit,
-      totalPages: Math.ceil(total / limit),
-    };
-  }
-
+  return {
+    data: users.map(u => ({
+      id: u.id,
+      firstName: u.firstName,
+      lastName: u.lastName,
+      email: u.email,
+      isVerified: u.isVerified,
+      role: u.role,
+      createdAt: u.createdAt,
+    })),
+    total,
+    page,
+    limit,
+    totalPages: Math.ceil(total / limit),
+  };
+}
   /**
    * Find single user by id
    */

@@ -24,8 +24,6 @@ import { AuthService } from 'src/auth/auth.service';
 export class WalletController {
   constructor(
     private readonly walletService: WalletService,
-    @InjectRepository(User)
-    private userRepository: Repository<User>,
      private authService: AuthService,
   ) {}
 

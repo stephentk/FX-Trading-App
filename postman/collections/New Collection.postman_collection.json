@@ -1,0 +1,596 @@
+{
+  "info": {
+    "_postman_id": "444794bb-62a5-49bf-8fc2-c2e66b6204b0",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "FX-Trade",
+      "item": [
+        {
+          "name": "register",
+          "id": "2b2d57b9-1ca4-4f77-9de2-0a85e9920652",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Stephen\",\r\n    \"lastName\": \"Kofoworola\",\r\n    \"email\": \"Kofoworolastephen8@gmail.com\",\r\n    \"password\": \"codes@10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verify",
+          "id": "7c9445c9-69c0-4f30-9db2-1aa227203d01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "id": "77ee29f8-a3f1-4923-881b-ae320ab71a97",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "   {\r\n     \"email\": \"Kofoworolastephen@gmail.com\",\r\n    \"password\": \"codes@10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get balance",
+          "id": "e5c69df5-3ae4-48c2-81e3-e9fa2262cdf7",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/wallet",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "wallet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "fund account",
+          "id": "3c4d191d-e126-4209-9784-2e695bc8b118",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"amount\":3000,\r\n    \"currencyCode\":\"USD\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/wallet/fund",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "wallet",
+                "fund"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "convert currency",
+          "id": "61ad496e-e115-4db0-92b2-39bec2eb47a3",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/wallet/convert",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "wallet",
+                "convert"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Trade currency",
+          "id": "4856baf4-0eb2-4f25-afa4-778f2319a074",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/wallet/trade",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "wallet",
+                "trade"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get rates",
+          "id": "296ed3c7-b499-4462-a815-5b5ff714632d",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/fx/rates?from=NGN&to=USD",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "fx",
+                "rates"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "NGN",
+                  "type": "text",
+                  "uuid": "374f172d-f0e3-4899-9af3-debc8b4138cd"
+                },
+                {
+                  "key": "to",
+                  "value": "USD",
+                  "type": "text",
+                  "uuid": "b4cd9600-3865-4493-8009-f62b543c8aab"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get transactions",
+          "id": "25bce894-c46e-4337-a00a-d1db4a7dd48f",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/transactions",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "make admin",
+          "id": "d8699cec-6792-4278-998c-294c9dbaa95e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/analytics/makeAdmin/734802ef-cce7-4598-bed6-5806ac069aba",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "analytics",
+                "makeAdmin",
+                "734802ef-cce7-4598-bed6-5806ac069aba"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "remove admin",
+          "id": "c164a09d-4f19-44a7-8518-317a138d4177",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/analytics/removeAdmin/734802ef-cce7-4598-bed6-5806ac069aba",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "analytics",
+                "removeAdmin",
+                "734802ef-cce7-4598-bed6-5806ac069aba"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all users",
+          "id": "3f150656-2eb3-4ad9-ae6b-5ecf4619774c",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/analytics/allusers?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "analytics",
+                "allusers"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user by id",
+          "id": "98bdbcf0-2279-4bf1-9ceb-3d32d06d1ad7",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/analytics/user/734802ef-cce7-4598-bed6-5806ac069aba",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "analytics",
+                "user",
+                "734802ef-cce7-4598-bed6-5806ac069aba"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user trades by id",
+          "id": "d9c0dbc2-4171-4482-9317-3f793a493457",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/analytics/user/trades/734802ef-cce7-4598-bed6-5806ac069aba",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "analytics",
+                "user",
+                "trades",
+                "734802ef-cce7-4598-bed6-5806ac069aba"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all users activity",
+          "id": "91500785-2065-42db-941f-4157ef0929dc",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzQ4MDJlZi1jY2U3LTQ1OTgtYmVkNi01ODA2YWMwNjlhYmEiLCJlbWFpbCI6ImtvZm93b3JvbGFzdGVwaGVuQGdtYWlsLmNvbSIsImlhdCI6MTc3MzgyODAzNywiZXhwIjoxNzczODMxNjM3fQ.8wGJPo6UIIRXbCouf1XDtFIs7_xlLPIf4xiJ8iQ9PaM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fromCurrency\": \"NGN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/analytics/users/activity?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "analytics",
+                "users",
+                "activity"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "ee8ab41f-943b-42de-9e7e-0bf9bfcc9086"
+    }
+  ]
+}
