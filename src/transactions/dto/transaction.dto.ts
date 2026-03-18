@@ -10,14 +10,14 @@ export class CreateTransactionDto {
 
   @IsNotEmpty()
   @IsEnum(TransactionType)
-  type: TransactionType; // FUND, CONVERT, TRADE
+  type: TransactionType;
 
   @IsNotEmpty()
   @IsNumber()
   amount: number;
 
   @IsNotEmpty()
-  currencyCode: string; // NGN, USD, EUR, etc.
+  currencyCode: string; 
 
   @IsOptional()
   @IsNumber()
@@ -25,5 +25,5 @@ export class CreateTransactionDto {
 
   @IsNotEmpty()
   @IsEnum(TransactionStatus)
-  status: TransactionStatus; // SUCCESS, FAILED
+  status: TransactionStatus; 
 }

@@ -38,7 +38,7 @@ export class AuthService {
       where: { email:email },
     });
 
-    // Case 1: user exists and is verified → cannot register
+    
     if (existingUser?.isVerified) {
       throw new BadRequestException('Email already registered');
     }
@@ -48,7 +48,7 @@ export class AuthService {
     let userToVerify: User;
 
     if (!existingUser) {
-      // Case 2: new user → create user + wallet
+
       const user = this.userRepository.create({
         firstName: dto.firstName,
         lastName: dto.lastName,
@@ -62,15 +62,14 @@ export class AuthService {
       await this.walletRepo.save(wallet);
       user.wallet = wallet;
 
-      // Save user
+    
       await this.userRepository.save(user);
       userToVerify = user;
     } else {
-      // Case 3: existing user but not verified → just resend OTP
+      
       userToVerify = existingUser;
     }
 
-    // // Send OTP
     await this.sendVerificationOtp(userToVerify);
 
     return {
@@ -80,11 +79,10 @@ export class AuthService {
   }
 
   private async sendVerificationOtp(user: User): Promise<void> {
-    // In production: use real email service (Nodemailer, SendGrid, etc.)
-    // Here: console simulation + save OTP
 
-    const code = Math.floor(100000 + Math.random() * 900000).toString(); // 6 digits
-    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    const code = Math.floor(100000 + Math.random() * 900000).toString(); 
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); 
 
     const otp = this.otpRepository.create({
       userId: user.id,
@@ -185,7 +183,7 @@ export class AuthService {
 
         const user = await this.userRepository.findOne({
       where: { id: id },
-      relations: ['wallet'], // ensures wallet is loaded
+      relations: ['wallet'], 
     });
 
     if (!user) {

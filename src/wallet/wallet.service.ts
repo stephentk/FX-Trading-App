@@ -19,7 +19,6 @@ export class WalletService {
     private transactionService: TransactionService,
   ) {}
 
-  /** Get all balances for a wallet */
   async getBalances(walletId: string) {
     const balances = await this.balanceRepo.find({ where: { walletId } });
     return balances.reduce((acc, b) => {
@@ -28,7 +27,6 @@ export class WalletService {
     }, {});
   }
 
-  /** Fund wallet */
   async fund(walletId: string, amount: number, currencyCode: string) {
     if (amount <= 0) throw new HttpException('Invalid amount', HttpStatus.BAD_REQUEST);
 
@@ -118,7 +116,6 @@ async convert(
       status: TransactionStatus.SUCCESS,
     };
 
-    // Pass manager so it participates in the same DB transaction
     const tx = await this.transactionService.logTransaction(txDto,data);
 
     return { fromBalance, toBalance, transaction: tx };
@@ -126,7 +123,7 @@ async convert(
 }
 
 async trade(walletId: string, fromCurrency: string, toCurrency: string, amount: number) {
-  // Validate allowed trade pair
+ 
   if (!['NGN', fromCurrency].includes(fromCurrency) && !['NGN', toCurrency].includes(toCurrency)) {
     throw new HttpException('Trade only allowed between NGN and other currencies', HttpStatus.BAD_REQUEST);
   }
@@ -134,15 +131,15 @@ async trade(walletId: string, fromCurrency: string, toCurrency: string, amount: 
   if (amount <= 0) throw new HttpException('Invalid amount', HttpStatus.BAD_REQUEST);
 
   return this.dataSource.transaction(async data => {
-    // Fetch source balance
+   
     const fromBalance = await data.findOne(Balance, { where: { walletId, currencyCode: fromCurrency } });
     if (!fromBalance || Number(fromBalance.amount) < amount) 
       throw new HttpException('Insufficient balance', HttpStatus.BAD_REQUEST);
 
-    // Convert using FX service
+   
     const convertedAmount = await this.fxService.convert(amount, fromCurrency, toCurrency);
 
-    // Fetch or create target balance
+    
     let toBalance = await data.findOne(Balance, { where: { walletId, currencyCode: toCurrency } });
     if (!toBalance) {
       toBalance = data.create(Balance, { walletId, currencyCode: toCurrency, amount: convertedAmount });

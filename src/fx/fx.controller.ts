@@ -5,11 +5,6 @@ import { FxService } from './fx.service';
 export class FxController {
   constructor(private readonly fxService: FxService) {}
 
-  /**
-   * GET /fx/rates
-   * Retrieve current FX rates for supported currency pairs
-   * Optional query param: baseCurrency (default: NGN)
-   */
  @Get('rates')
   async getRate(
     @Query('from') fromCurrency: string,

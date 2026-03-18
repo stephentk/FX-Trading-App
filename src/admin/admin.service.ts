@@ -12,7 +12,6 @@ export class AnalyticsService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
     @InjectRepository(Transaction) private transactionRepository: Repository<Transaction>,
-    private dataSource: DataSource,
   ) {}
     async MakeAdmin(userId: string): Promise<User> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
@@ -29,9 +28,7 @@ export class AnalyticsService {
     return this.userRepository.save(user);
   }
 
-  /**
-   * Demote an admin back to user (optional)
-   */
+  
   async MakeUser(userId: string): Promise<User> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
 
@@ -102,12 +99,8 @@ async getAllUsers(page = 1, limit = 10) {
   }
 
 
- 
-
-  // 3. Overall system analytics (all users)
 
 
-  // analytics/analytics.service.ts
 async getAllUsersTradesPaginated(page = 1, limit = 10) {
   const users = await this.userRepository.find({
     relations: ['wallet'],

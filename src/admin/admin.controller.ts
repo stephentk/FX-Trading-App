@@ -18,7 +18,7 @@ async promoteUser(@Param('userId') userId: string) {
     };
   } catch (error) {
   
-    // Throw an appropriate HTTP exception
+  
     throw new HttpException(
       {
         message: 'Failed to make admin',
@@ -28,7 +28,7 @@ async promoteUser(@Param('userId') userId: string) {
     );
   }
 }
-  // Optional: Demote an admin back to user
+ 
 @Patch('removeAdmin/:userId')
 @UseGuards(AdminGuard)
 async demoteUser(@Param('userId') userId: string) {
@@ -74,7 +74,7 @@ async getAllUsers(
   }
 }
 
-// Get single user by id
+
 @Get('user/:id')
 @UseGuards(AdminGuard)
 async getUser(@Param('id') id: string) {
@@ -96,7 +96,6 @@ async getUser(@Param('id') id: string) {
   }
 }
 
-// Get a user's trade summary
 @Get('user/trades/:id')
 @UseGuards(AdminGuard)
 async getUserTrades(@Param('id') userId: string) {
@@ -118,7 +117,6 @@ async getUserTrades(@Param('id') userId: string) {
   }
 }
 
-// Get a user's activity summary
 @Get('users/activity')
 @UseGuards(AdminGuard)
 async getUserActivity(

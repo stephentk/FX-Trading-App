@@ -13,13 +13,13 @@ export class TransactionController {
     private userRepository: Repository<User>,
   ) {}
 
-  // Get all transactions for logged-in user
+
 @Get()
 async getUserTransactions(
   @GetUser('id') userId: string,
 ) {
   try {
-    // Fetch full user including wallet
+
     const user = await this.userRepository.findOne({
       where: { id: userId },
       relations: ['wallet'],
@@ -35,7 +35,7 @@ async getUserTransactions(
 
     console.log('Get transactions request for user:', user.id);
 
-    // Call transaction service with wallet ID
+   
     const transactions = await this.transactionService.getTransactions(user.wallet.id);
 
     return {
@@ -45,7 +45,7 @@ async getUserTransactions(
   } catch (error) {
     console.error('Error fetching user transactions:', error);
 
-    // Preserve known exceptions (like BadRequestException)
+
     if (error instanceof BadRequestException) {
       throw error;
     }

@@ -5,18 +5,16 @@ import Redis from 'ioredis';
 
 @Injectable()
 export class FxService {
-  private ratesCache: Record<string, number> = {}; // in-memory fallback
+  private ratesCache: Record<string, number> = {}; 
   private lastFetched: Date | null = null;
-  private readonly FX_CACHE_TTL = 5 * 60 * 1000; // 5 minutes in ms
+  private readonly FX_CACHE_TTL = 5 * 60 * 1000;
 
   constructor(
     private readonly configService: ConfigService,
     @Inject('REDIS_CLIENT') private readonly redis: Redis,
   ) {}
 
-  /**
-   * Fetch FX rates from Redis, fallback to in-memory, or fetch from API
-   */
+ 
   async fetchRates(baseCurrency = 'NGN'): Promise<Record<string, number>> {
     const cacheKey = `fx_rates:${baseCurrency.toUpperCase()}`;
 
@@ -76,9 +74,6 @@ export class FxService {
     }
   }
 
-  /**
-   * Convert amount from one currency to another
-   */
   async convert(
     amount: number,
     fromCurrency: string,
@@ -101,8 +96,8 @@ export class FxService {
   }
 
 async getRatePair(fromCurrency: string, toCurrency: string): Promise<number> {
-  const rates = await this.fetchRates(fromCurrency); // fetch base rates
-  const fromRate = rates[fromCurrency.toUpperCase()] || 1; // base rate
+  const rates = await this.fetchRates(fromCurrency); 
+  const fromRate = rates[fromCurrency.toUpperCase()] || 1;
   const toRate = rates[toCurrency.toUpperCase()];
 
   if (!toRate) {
@@ -112,7 +107,6 @@ async getRatePair(fromCurrency: string, toCurrency: string): Promise<number> {
     );
   }
 
-  // Conversion formula: amount_in_target = 1 * (toRate / fromRate)
   return Number((toRate / fromRate).toFixed(6));
 }
 

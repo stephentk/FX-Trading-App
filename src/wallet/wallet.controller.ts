@@ -27,7 +27,7 @@ export class WalletController {
      private authService: AuthService,
   ) {}
 
-  // Get all balances for current user
+
 @Get()
 async getBalances(@GetUser('id') userId: string) {
   try {
@@ -62,7 +62,7 @@ async getBalances(@GetUser('id') userId: string) {
   }
 }
 
-// Fund wallet
+
 @Post('fund')
 async fundWallet(
   @GetUser('id') userId: string,
@@ -104,7 +104,7 @@ async fundWallet(
   }
 }
 
-// Convert currency
+
 @Post('convert')
 async convertCurrency(
   @GetUser('id') userId: string,
@@ -150,7 +150,7 @@ async convertCurrency(
   }
 }
 
-// Trade currency
+
 @Post('trade')
 async tradeCurrency(
   @GetUser('id') userId: string,
