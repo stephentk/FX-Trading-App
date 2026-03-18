@@ -36,7 +36,7 @@ FX_API_KEY = =
 FX_API_URL = 'https://api.exchangerate-api.com/v4/latest'
 
 
-JWT_SECRET=veryvalidkey
+JWT_SECRET=
 JWT_EXPIRATION=1h
 
 EMAIL_USER==
