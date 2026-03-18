@@ -163,8 +163,9 @@ Returns balances per currency:
 
 ```json
 {
-  "USD": 1500,
-  "EUR": 1650
+    "from": "USD",
+    "to": "NGN",
+    "rate": 1359.03
 }
 ```
 
